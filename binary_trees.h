@@ -1,10 +1,6 @@
 #ifndef BINARY_TREE_H
 #define BINARY_TREE_H
 
-#define YES 1
-#define NO 0
-#define IS_NULL NO
-
 #include <stdlib.h>
 
 /**
