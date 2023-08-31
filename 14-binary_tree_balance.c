@@ -14,7 +14,7 @@ int binary_tree_balance(const binary_tree_t *tree)
 {
 	const binary_tree_t *subtree = tree;
 
-	if (!tree || (!tree->left && !tree->right))
+	if (!tree)
 	{
 		return (0);
 	}
@@ -32,50 +32,33 @@ int binary_tree_balance(const binary_tree_t *tree)
 	 * means the right subtree has a higher height
 	 * than the left subtree.
 	 **/
-	return (binary_left_subtree_height(subtree) -
-		binary_right_subtree_height(subtree));
+	return (binary_subtree_height(subtree->left) -
+		binary_subtree_height(subtree->right));
 }
 
 /**
- * binary_left_subtree_height - Returns the height
- * of left subtree for @subtree. @subtree could
+ * binary_subtree_height - Returns the height
+ * of subtree for @subtree. @subtree could
  * also be the root node in the binary tree.
  *
- * @subtree: A pointer to the subtree whose left
+ * @subtree: A pointer to the subtree whose height
  * subtree needs to be determined.
  *
- * Return: The height of the left subtree.
+ * Return: The height of the subtree.
  *
  **/
-int binary_left_subtree_height(const binary_tree_t *subtree)
+int binary_subtree_height(const binary_tree_t *subtree)
 {
-	if (!subtree->left)
+	int left_subtree_height = 0, right_subtree_height = 0;
+
+	if (!subtree)
 	{
-		return (0);
+		return (-1);
 	}
 
-	return (1 +
-		binary_left_subtree_height(subtree->left));
-}
+	left_subtree_height = (1 + binary_subtree_height(subtree->left));
+	right_subtree_height = (1 + binary_subtree_height(subtree->right));
 
-/**
- * binary_right_subtree_height - Returns the height
- * of right subtree for @subtree. @subtree could
- * also be the root node in the binary tree.
- *
- * @subtree: A pointer to the subtree whose right
- * subtree needs to be determined.
- *
- * Return: The height of the right subtree.
- *
- **/
-int binary_right_subtree_height(const binary_tree_t *subtree)
-{
-	if (!subtree->right)
-	{
-		return (0);
-	}
-
-	return (1 +
-		binary_right_subtree_height(subtree->right));
+	return (left_subtree_height > right_subtree_height ?
+		left_subtree_height : right_subtree_height);
 }
