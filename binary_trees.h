@@ -46,7 +46,6 @@ binary_tree_t *binary_tree_uncle(binary_tree_t *node);
 
 
 /* Helper functions */
-int binary_left_subtree_height(const binary_tree_t *tree);
-int binary_right_subtree_height(const binary_tree_t *tree);
+int binary_subtree_height(const binary_tree_t *subtree);
 
 #endif
