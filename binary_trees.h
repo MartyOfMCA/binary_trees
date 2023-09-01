@@ -70,5 +70,13 @@ int *heap_to_sorted_array(heap_t *heap, size_t *size);
 /* Helper functions */
 int binary_subtree_height(const binary_tree_t *subtree);
 int binary_subtree_balance(const binary_tree_t *subtree);
+int binary_subtree_depth(const binary_tree_t *subtree);
+int is_direct_descendant(const binary_tree_t *node,
+		const binary_tree_t *assumed_ancestor);
+binary_tree_t *find_immediate_ancestor
+	(const binary_tree_t *first,
+	const binary_tree_t *second,
+	int first_node_depth,
+	int second_node_depth);
 
 #endif
