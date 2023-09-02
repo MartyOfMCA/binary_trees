@@ -78,5 +78,7 @@ binary_tree_t *find_immediate_ancestor
 	const binary_tree_t *second,
 	int first_node_depth,
 	int second_node_depth);
+void print_nodes_at(int level, const binary_tree_t *subtree,
+		void (*func)(int));
 
 #endif
